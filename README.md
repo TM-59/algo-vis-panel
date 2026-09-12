@@ -15,3 +15,10 @@ sudo apt-get install libgtk-3-dev
 sudo apt-get install libplplot-dev
 sudo apt-get install libplplot-dev plplot-driver-cairo
 ```
+## ビルド
+
+```bash
+make            # ローカル(要: libgtk-3-dev libplplot-dev)
+make check      # 構文検査だけ
+docker build -t algo-vis-panel .   # 依存込みで再現可能に組む
+```

@@ -1,0 +1,21 @@
+name: ci
+# 分類(2026-09-13。~/project-context/agent-config/shared-instructions.md の予算規約):
+#   [CI存続] PR 上の軽量ゲートのみ = docker build（make = gtk_window のビルド）。push では回さない。
+#   Dependabot の更新（base image / 依存）をこの 1 本で検証する。E2E・デプロイは置かない。
+on:
+  pull_request:
+    paths-ignore:
+      - "**.md"
+      - "LICENSE"
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - run: docker build --progress=plain .

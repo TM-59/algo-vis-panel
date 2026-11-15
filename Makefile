@@ -25,8 +25,8 @@ DOCKERFMT ?= dockerfmt
 HADOLINT ?= hadolint
 STYLE_FLAGS ?=
 PRETTIER := ./node_modules/.bin/prettier
-SOURCES := $(shell git ls-files '*.c')
-DOCS := $(shell git ls-files '*.md' '*.json' '*.yaml' '*.yml')
+SOURCES = $(shell git ls-files '*.c')
+DOCS = $(shell git ls-files '*.md' '*.json' '*.yaml' '*.yml')
 
 check-tool-versions:
 	$(CLANG_FORMAT) --version | grep -Eq '(^| )23\.1\.5($$| )'

@@ -5,7 +5,8 @@
 FROM debian:13-slim
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        build-essential pkg-config libgtk-3-dev libplplot-dev plplot-driver-cairo \
+        build-essential=12.12 pkg-config=1.8.1-4 libgtk-3-dev=3.24.49-3 \
+        libplplot-dev=5.15.0+dfsg2-15+b1 plplot-driver-cairo=5.15.0+dfsg2-15+b1 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /src

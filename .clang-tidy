@@ -1,0 +1,2 @@
+# C17 Annex K is optional and glibc does not provide fscanf_s or memcpy_s.
+Checks: "clang-analyzer-*,-clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling"

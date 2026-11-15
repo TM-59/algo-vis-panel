@@ -39,12 +39,14 @@ check-tool-versions:
 fmt: check-tool-versions
 	$(CLANG_FORMAT) -i $(SOURCES)
 	$(DOCKERFMT) --write Dockerfile
+	$(PRETTIER) --parser yaml --write .clang-format .clang-tidy
 	$(PRETTIER) --write $(DOCS) package.json
 
 lint: check-tool-versions
 	$(CLANG_FORMAT) --dry-run --Werror $(SOURCES)
 	$(DOCKERFMT) --check Dockerfile
 	$(HADOLINT) --failure-threshold warning Dockerfile
+	$(PRETTIER) --parser yaml --check .clang-format .clang-tidy
 	$(PRETTIER) --check $(DOCS) package.json
 	$(CLANG_TIDY) gtk_window.c --warnings-as-errors='*' -- -std=c17 -Wall -Wextra -Werror $(STYLE_FLAGS) $(shell pkg-config --cflags $(PKGS))
 	$(CLANG_TIDY) panel.c sample.c --warnings-as-errors='*' -- -std=c17 -Wall -Wextra -Werror $(STYLE_FLAGS)

@@ -45,20 +45,15 @@ void plot_data() {
   plend();
 }
 
-// GTK+ の描画エリアの "draw" イベントに対するコールバック関数
-static gboolean on_draw_event(GtkWidget *widget, cairo_t *cr,
-                              gpointer user_data) {
-  plot_data(); // PLplot を使用してデータをプロット
-  return FALSE;
-}
-
 // アプリケーションの終了時に plend を呼び出すためのコールバック関数
 void on_app_destroy(GtkWidget *widget, gpointer data) {
+  (void)widget;
+  (void)data;
   // plend(); // PLplot の終了処理
   gtk_main_quit();
 }
 
-int main(int argc, char *argv[]) {
+int main(void) {
   printf("Hello, world!\n");
 
   // CSVデータの読み込み

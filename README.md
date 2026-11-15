@@ -1,4 +1,3 @@
-
 ```
 シンプルなコンパイル
 gcc sample.c -o sample && ./sample
@@ -15,6 +14,7 @@ sudo apt-get install libgtk-3-dev
 sudo apt-get install libplplot-dev
 sudo apt-get install libplplot-dev plplot-driver-cairo
 ```
+
 ## ビルド
 
 ```bash

@@ -1,8 +1,8 @@
 {
-    "files.associations": {
-        "ncurses.h": "c",
-        "gtkdatabox.h": "c",
-        "plplot.h": "c",
-        "stdio.h": "c"
-    }
+  "files.associations": {
+    "ncurses.h": "c",
+    "gtkdatabox.h": "c",
+    "plplot.h": "c",
+    "stdio.h": "c"
+  }
 }

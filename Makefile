@@ -29,11 +29,11 @@ SOURCES := $(shell git ls-files '*.c')
 DOCS := $(shell git ls-files '*.md' '*.json' '*.yaml' '*.yml')
 
 check-tool-versions:
-	$(CLANG_FORMAT) --version | grep -Eq '(^| )23\.1\.5($| )'
-	$(CLANG_TIDY) --version | grep -Eq '(^| )23\.1\.5($| )'
-	$(STYLE_CC) --version | grep -Eq '(^| )23\.1\.5($| )'
-	$(DOCKERFMT) version | grep -Eq '(^| )v?1\.0\.0($| )'
-	$(HADOLINT) --version | grep -Eq '(^| )2\.15\.1($| )'
+	$(CLANG_FORMAT) --version | grep -Eq '(^| )23\.1\.5($$| )'
+	$(CLANG_TIDY) --version | grep -Eq '(^| )23\.1\.5($$| )'
+	$(STYLE_CC) --version | grep -Eq '(^| )23\.1\.5($$| )'
+	$(DOCKERFMT) version | grep -Eq '(^| )v?1\.0\.0($$| )'
+	$(HADOLINT) --version | grep -Eq '(^| )2\.15\.1($$| )'
 	test "$$($(PRETTIER) --version)" = 3.10.1
 
 fmt: check-tool-versions
